@@ -1,0 +1,33 @@
+.align-center {
+  margin-left: 10rem;
+}
+.input-bg label,
+.input-bg-textarea label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: 0.2px;
+
+  /* grayscale / gray */
+
+  color: #9fa2b4 !important;
+}
+.input-bg input,
+.input-bg-textarea textarea {
+  background-color: #eef1f7 !important;
+  border-radius: 2px !important;
+  border-color: #eef1f7 !important ;
+}
+.left {
+  text-align: right;
+}
+
+.error.input-bg input,
+.error.input-bg-textarea textarea {
+  border-color: #9f3a38 !important;
+}
+td.two.wide.td-text.tools button:first-child {
+  margin-right: 14px;
+}

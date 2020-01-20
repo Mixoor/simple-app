@@ -1,0 +1,35 @@
+.tab-header {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600 !important;
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  letter-spacing: 0.2px;
+  color: #666 !important;
+
+  /* border: none; */
+}
+.bg-tab {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  /* padding-left: 8px !important; */
+  background-color: #fff !important;
+}
+.no-border {
+  /* border: none; */
+}
+.td-text {
+  font-family: Muli;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  /* or 111% */
+
+  letter-spacing: 0.2px;
+
+  /* grayscale / black */
+
+  color: #252733;
+}
