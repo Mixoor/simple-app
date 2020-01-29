@@ -1,0 +1,74 @@
+
+.form-input-inline{
+    margin-bottom:28px;
+}
+.form-input-inline .field {
+    display: flex !important;
+    flex: 1 ;
+    align-items: center;
+    justify-content:flex-start;
+}
+
+
+.ui.input.input-bg.picture-input {
+    display:none
+}
+
+.field>span {
+    display: flex;
+    flex: 1;
+
+}
+
+.field>span>label>img {
+    width:60px;
+    height:60px;
+    border-radius:50%
+}
+
+.form-input-inline label{
+    flex:1;
+}
+.input-bg input{
+    padding: 0.8em 4px !important;
+    }
+
+
+.ui.input.input-bg {
+    flex:1;
+    height:41px;
+}
+.dropdown.input-bg {
+    background-color: #EEF1F7;
+    flex: 1;
+    /*padding: .78571429em  4px !important;*/
+    padding: 0.8em 4px !important;
+    border-radius:2px!important;
+
+}
+
+.dropdown.input-bg {
+    flex: 1 1;
+    padding: 0.8em 8px !important;
+    border: none;
+    background: #EEF1F7 !important;
+    border-radius:2px!important;
+    border:none!important;
+    /*marign:14px;*/
+    height:41px;
+    /*width:215px;*/
+}
+
+.form-input-inline .field>label {
+    flex:1 !important;
+    display: flex !important;
+}
+.form-input-inline .field label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px !important;
+    line-height: 28px !important;
+    letter-spacing: 0.2px;
+    color: #9FA2B4 !important;
+}

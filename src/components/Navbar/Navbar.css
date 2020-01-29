@@ -1,9 +1,26 @@
 .navbar {
+  display: flex;
   align-items: center;
-  padding: 10;
+  justify-content: space-between;
+  padding: 18px;
   background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
   border-radius: 8px;
+}
+
+.navbar-left , .navbar-right{
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+.navbar-right{
+  justify-content: flex-end;
+  margin-right: 12px;
+}
+
+.navbar-icon{
+  margin-right: 12px !important;
+  margin-left: 12px !important;
 }
 .name {
   font-family: Montserrat;
@@ -11,6 +28,9 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
+  padding:0 12px ;
+  cursor: pointer;
+  user-select: none;
   /* identical to box height, or 121% */
 
   color: #2c2c2c;
@@ -31,4 +51,15 @@
 }
 i {
   cursor: pointer;
+}
+.switch-mode{
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.navbar-container{
+  width: 100%;
+}
+.profile-dropdown .left.visible.menu.transition {
+  margin-top: 4px;
 }

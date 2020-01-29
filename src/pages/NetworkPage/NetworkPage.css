@@ -1,0 +1,43 @@
+.round-btn{
+    border-radius:20px !important;
+    background-color:#9E94FF !important;
+    color: white!important;
+}
+
+.round-btn:hover{
+    background-color:rgb(134, 123, 237)!important;
+}
+
+.table-container{
+    overflow-x:auto;
+    margin-top:18px;
+}
+
+.dark .table-container::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    outline: 1px solid slategrey;
+}
+
+.div-form{
+    display: flex;
+    margin: 16px 45px;
+    min-width: 420px;
+    flex: 1 1;
+    flex-direction: column;
+    }
+.btn-right{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin:4px 40px;
+}
+.btn-right button{
+    margin-left:14px;
+}
+
+.div-form-container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+}

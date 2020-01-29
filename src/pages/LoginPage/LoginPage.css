@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Suez+One&display=swap');
+
+
+.field.login-input input {
+    background-color: #F7F7F7 !important;
+    border-color: #F7F7F7 !important;
+    padding: 4px 20px;
+}
+
+
+.login-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.login-logo h3{
+    font-family: 'Suez One', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    padding-bottom:12px;
+    color: #7A97F4;
+}
+.login-container input {
+    height: 50px!important;
+}
+.field.login-btn button {
+    font-family: 'Montserrat', Roboto, serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    width: 100%;
+    margin-top: 18px;
+
+}
+
+.login-btn-link{
+    margin: 8px 0px;
+    text-align: center;
+}
+
+.login-main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(120.23deg, rgba(11, 108, 255, 0.65) -20.95%, rgba(126, 114, 242, 0.71) 63.96%);
+}
+
+.login-container {
+     width: 50%;
+    min-width: 300px;
+    padding: 45px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 21px rgba(0, 0, 0, 0.135216);
+    border-radius: 8px;
+}
+

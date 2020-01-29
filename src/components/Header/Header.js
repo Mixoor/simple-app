@@ -1,6 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Header.css";
+
+/**
+ * Header is h3 title with divider
+ *  <Header title="Permission" />
+ *   you can also add some compoenent to be presented in the right side
+ *   <Header title="some title">
+ *          <SomeComponent/>
+ *   </Header>
+ *
+ * */
 class Header extends React.Component {
   render() {
     return (
@@ -10,7 +20,7 @@ class Header extends React.Component {
           <>{this.props.children}</>
         </div>
 
-        <div className="divider"></div>
+            <div className="divider"></div>
       </div>
     );
   }

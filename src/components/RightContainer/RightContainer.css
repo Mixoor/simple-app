@@ -1,7 +1,9 @@
 .right-side {
-  /* min-width: 550px; */
-  padding: 3rem;
-  flex: 1;
+  min-width: 350px;
+  margin: 3rem 3rem 0 3rem;
+  flex: 1 1;
+  width: 100%;
+  /*overflow-x: auto;*/
 }
 .page-padding {
   margin-top: 56px;

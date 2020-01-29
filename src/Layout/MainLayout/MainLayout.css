@@ -1,6 +1,8 @@
 .container {
   display: flex;
   min-height: 100%;
+  transition: background-color 0.4s;
+
 }
 div#root {
   height: 100%;

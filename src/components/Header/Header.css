@@ -12,6 +12,11 @@
   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
   margin-bottom: 45px;
 }
+.dark .divider {
+  padding-bottom: 0.21428571rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 45px;
+}
 
 .header-main {
   width: 100%;

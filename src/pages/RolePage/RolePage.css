@@ -14,6 +14,19 @@
 
   color: #9fa2b4 !important;
 }
+
+.custom-edit-tab{
+  background-color: rgb(158, 148, 255)!important;
+  color: white !important;
+  border-width: 1px !important;
+  border-style: solid!important;
+  border-color: rgb(158, 148, 255) !important;
+}
+
+.custom-edit-tab:hover{
+  background-color: rgb(134, 123, 237)!important;
+  border-color: rgb(134, 123, 237);
+}
 .input-bg input,
 .input-bg-textarea textarea {
   background-color: #eef1f7 !important;
@@ -23,7 +36,19 @@
 .left {
   text-align: right;
 }
-
+.custom-error-tab {
+  border:1px solid #db2828 !important;
+  background-color:white !important;
+  color:#db2828 !important;
+}
+td.two.wide.td-text.tools button:first-child {
+  margin-right: 14px;
+  margin-bottom: 4px;
+}
+.custom-error-tab:hover {
+  border:1px solid #db2828 !important;
+  background-color:#f3f3f3b8 !important;
+}
 .error.input-bg input,
 .error.input-bg-textarea textarea {
   border-color: #9f3a38 !important;

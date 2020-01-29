@@ -3,15 +3,13 @@ import PropTypes from "prop-types";
 import "./RightContainer.css";
 import Navbar from "../Navbar/Navbar";
 class RightContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+
+
 
   render() {
     return (
       <div className="right-side">
-        <Navbar onPress={this.props.toggleSidemenu} />
+        <Navbar isMobile={this.props.isMobile} onPress={this.props.toggleSidemenu}   {...this.props}/>
         <div className="page-padding">{this.props.children}</div>
       </div>
     );

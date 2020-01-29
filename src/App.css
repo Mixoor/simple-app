@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+.dark.container{
+  background-color:#121212
+}
+.dark .table.ui.small.unstackable.compact.padded.left.aligned.table {
+  background-color: #333;
+  color: white!important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.dark td.td-text {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dark th.tab-header.bg-tab {
+  background: #121212!important;
+  color: rgba(255,255,255,.9)!important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dark h3.my-header {
+  color: white;
+}
+
+.dark button.ui.basic.button {
+  color:white !important;
+  border-color:white !important;
+  box-shadow:0 0 0 1px rgba(34,36,38,1) inset;
+  background-color:#333 !important;
+}
+
+.dark button.ui.basic.button:hover {
+  color:#333 !important;
+  border-color:white !important;
+  box-shadow:0 0 0 1px rgba(34,36,38,1) inset;
+  background-color:#fff !important;
+}
+
+.dark .ui.definition.table thead:not(.full-width) th:first-child{
+  box-shadow:none !important;
+
+}
+.dark span.item {
+  color: white !important;
+}
+.dark .sous-menu {
+  background-color: #121212!important;
+}
+.dark span.item i {
+  color: white !important;
+}
+
+.dark i.black.icon {
+  color: white !important;
+}
+
+.dark .fixed-side {
+  background-color:#121212;
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.170509);
+}
+
+
+.dark span.item:hover i.black.icon {
+  color:#121212 !important;
+}
+.dark span.item:hover {
+  color:#121212 !important;
+
+}
+
+.dark .navbar {
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.135216) !important;
+  background-color: #333;
+  color: white;
+}
+
+.dark span.header {
+  color: white !important;
+}
+
+.dark .name{
+  color:white !important;
 }

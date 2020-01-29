@@ -10,14 +10,11 @@ class PermissionTable extends React.Component {
         compact
         padded
         unstackable
-        // compact
         celled
         definition
         striped
-        // unstackable
         textAlign="center"
-        // size="small"
-        // style={{ overflowX: "auto" }}
+
       >
         <Table.Header className="no-border">
           <Table.Row>

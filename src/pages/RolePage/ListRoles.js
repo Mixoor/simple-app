@@ -1,32 +1,55 @@
 import React from "react";
-import PropTypes from "prop-types";
 import MainLayout from "@/Layout/MainLayout/MainLayout";
 import Header from "@/components/Header/Header";
 import "./RolePage.css";
-import { Table, Button, Icon, Dropdown } from "semantic-ui-react";
+import { Table, Button} from "semantic-ui-react";
+import CustomTable from "@/components/CustomTable/CustomTable"
 
+const friendOptions = [
+    {
+        key: 'Jenny Hess',
+        text: 'Jenny Hess',
+        value: 'Jenny Hess',
+        image: { avatar: true, src: '/images/avatar/small/jenny.jpg' },
+    },
+    {
+        key: 'Elliot Fu',
+        text: 'Elliot Fu',
+        value: 'Elliot Fu',
+        image: { avatar: true, src: '/images/avatar/small/elliot.jpg' },
+    },
+    {
+        key: 'Stevie Feliciano',
+        text: 'Stevie Feliciano',
+        value: 'Stevie Feliciano',
+        image: { avatar: true, src: '/images/avatar/small/stevie.jpg' },
+    },
+    {
+        key: 'Christian',
+        text: 'Christian',
+        value: 'Christian',
+        image: { avatar: true, src: '/images/avatar/small/christian.jpg' },
+    },
+    {
+        key: 'Matt',
+        text: 'Matt',
+        value: 'Matt',
+        image: { avatar: true, src: '/images/avatar/small/matt.jpg' },
+    },
+    {
+        key: 'Justen Kitsune',
+        text: 'Justen Kitsune',
+        value: 'Justen Kitsune',
+        image: { avatar: true, src: '/images/avatar/small/justen.jpg' },
+    },
+]
 class ListRoles extends React.Component {
   render() {
     return (
       <MainLayout>
         <Header title="List of user" />
         <div>
-          <Table size="small" textAlign="left" compact padded unstackable>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell className="tab-header bg-tab">
-                  N°
-                </Table.HeaderCell>
-                <Table.HeaderCell className="tab-header bg-tab">
-                  Role name
-                </Table.HeaderCell>
-                <Table.HeaderCell className="tab-header bg-tab">
-                  Description
-                </Table.HeaderCell>
-
-                <Table.HeaderCell className="tab-header bg-tab"></Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
+          <CustomTable  header={["N°","Nom de role","Description",'']}  >
 
             <Table.Body>
               <Table.Row>
@@ -40,25 +63,19 @@ class ListRoles extends React.Component {
                 <Table.Cell className="td-text tools" width={2}>
                   <Button
                     icon="pencil alternate"
-                    style={{
-                      backgroundColor: "#9E94FF",
-                      color: "white",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#9E94FF"
-                    }}
+                    className="custom-edit-tab"
                     circular
                   />
                   <Button
                     icon="trash"
                     color="red"
-                    style={{
-                      backgroundColor: "white",
-                      color: "#E64C66",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#E64C66"
-                    }}
+                    // style={{
+                    //   backgroundColor: "white",
+                    //   color: "#E64C66",
+                    //   borderWidth: 1,
+                    //   borderStyle: "solid",
+                    //   borderColor: "#E64C66"
+                    // }}
                     circular
                   />
                 </Table.Cell>
@@ -78,25 +95,20 @@ class ListRoles extends React.Component {
                   <Button icon="trash" color="red" circular /> */}
                   <Button
                     icon="pencil alternate"
-                    style={{
-                      backgroundColor: "#9E94FF",
-                      color: "white",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#9E94FF"
-                    }}
+                    className="custom-edit-tab"
+
                     circular
                   />
                   <Button
                     icon="trash"
                     color="red"
-                    style={{
-                      backgroundColor: "white",
-                      color: "#E64C66",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#E64C66"
-                    }}
+                    // style={{
+                    //   backgroundColor: "white",
+                    //   color: "#E64C66",
+                    //   borderWidth: 1,
+                    //   borderStyle: "solid",
+                    //   borderColor: "#E64C66"
+                    // }}
                     circular
                   />
                 </Table.Cell>
@@ -116,25 +128,14 @@ class ListRoles extends React.Component {
                   <Button icon="trash" color="red" circular /> */}
                   <Button
                     icon="pencil alternate"
-                    style={{
-                      backgroundColor: "#9E94FF",
-                      color: "white",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#9E94FF"
-                    }}
+                    className="custom-edit-tab"
+
                     circular
                   />
                   <Button
                     icon="trash"
                     color="red"
-                    style={{
-                      backgroundColor: "white",
-                      color: "#E64C66",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#E64C66"
-                    }}
+
                     circular
                   />
                 </Table.Cell>
@@ -160,33 +161,65 @@ class ListRoles extends React.Component {
                     </Dropdown.Menu>
                   </Dropdown> */}
                   <Button
-                    icon="pencil alternate"
-                    style={{
-                      backgroundColor: "#9E94FF",
-                      color: "white",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#9E94FF"
-                    }}
+                      className="custom-edit-tab"
+                    icon="pencil alternate "
+
                     circular
                   />
                   <Button
+                      className="custom-error-tab"
                     icon="trash"
                     color="red"
-                    style={{
-                      backgroundColor: "white",
-                      color: "#E64C66",
-                      borderWidth: 1,
-                      borderStyle: "solid",
-                      borderColor: "#E64C66"
-                    }}
+
                     circular
                   />
                 </Table.Cell>
               </Table.Row>
             </Table.Body>
-          </Table>
+          </CustomTable>
         </div>
+
+          {/*<CustomTab panes={[*/}
+          {/*    { menuItem: 'Tab 1', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },*/}
+          {/*    { menuItem: 'Tab 2', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },*/}
+          {/*    { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },*/}
+          {/*]}/>*/}
+
+    {/*    <div>*/}
+    {/*        <Form>*/}
+    {/*    <div style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center"}}>*/}
+
+
+    {/*            <div style={{flex:1,margin:"2em"}}>*/}
+    {/*                <CustomInput  className="input-bg picture-input" type="picture" label="some input" mode="inline" onChange={(e)=>console.log(e)}/>*/}
+    {/*                <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+    {/*                <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+    {/*                <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+    {/*                <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+
+    {/*            </div>*/}
+
+    {/*<div style={{flex:1,margin:"2em"}}>*/}
+    {/*    <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e.target.value)}/>*/}
+    {/*    <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+    {/*    <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+    {/*    <CustomInput  className="input-bg" type="text" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+    {/*    <CustomInput*/}
+    {/*                     fluid*/}
+    {/*                     selection*/}
+    {/*                     options={friendOptions} className="input-bg" type="dropdown" label="some input" mode="inline" value="chady" onChange={(e)=>console.log(e)}/>*/}
+
+    {/*</div>*/}
+    {/*    </div>*/}
+
+    {/*        </Form>*/}
+    {/*    </div>*/}
+
+
+
+
+
+
       </MainLayout>
     );
   }

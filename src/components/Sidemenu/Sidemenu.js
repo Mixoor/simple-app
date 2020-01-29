@@ -5,13 +5,18 @@ import { Icon } from "semantic-ui-react";
 import MenuItem from "../MenuItem/MenuItem";
 import { menu } from "@/utils/menu";
 class Sidemenu extends React.Component {
+
+
+
+
+
   render() {
     return (
       <div
         className={
-          this.props.width === 60 ? "fixed-side side-mobile" : "fixed-side"
+          this.props.width === 60 || this.props.isMobile ? "fixed-side side-mobile" : "fixed-side"
         }
-        style={{ width: this.props.width }}
+        style={{ minWidth: this.props.isMobile ?  60 :this.props.width }}
       >
         <div className="overflow-visible">
           <div className="logo">

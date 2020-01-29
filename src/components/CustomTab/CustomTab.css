@@ -1,0 +1,44 @@
+.tab-custom {
+    display: flex;
+    flex: 1 ;
+    /*width: 100%;*/
+    overflow-x: auto;
+}
+
+.tab-custom>div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tab-custom .ui.text.menu {
+    display: flex;
+    font-family: Roboto, serif;
+    flex-wrap: wrap;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    width: 100%;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #DADFEA;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.dark tfoot.full-width th {
+    background-color: #121212 !important;
+}
+.tab-custom a.item {
+    color: #DADFEA !important;
+    margin-right: 24px!important;
+}
+
+.tab-custom a.active.item {
+    color: #9E94FF !important;
+    border-bottom:2px solid #9E94FF !important;
+}
+.tab-custom .ui.text.menu .item:hover {
+    color: #9E94FF !important;
+}
