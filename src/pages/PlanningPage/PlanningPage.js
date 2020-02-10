@@ -350,7 +350,7 @@ class PlanningPage extends React.Component {
                 <Grid.Column width={10} className={"no-padding"}>
                     <Input
                         type={"text"}
-                        name={"duree"}
+                        name={"email"}
                         placeholder={"Email"}
                         value={player.email}
                         onChange={(e)=>this.handleParticipantChange(e,index,team)}
@@ -429,10 +429,15 @@ class PlanningPage extends React.Component {
         this.setState({reservationForm: reservationForm});
     }
 
-    handleParticipantChange(e) {
+    handleParticipantChange(e,index,team) {
         let {reservationForm} = this.state;
         let {participant} = this.state.reservationForm;
-        participant = {...participant, [e.target.name]: e.target.value};
+        let equipe = team===1 ? participant.equipe1:participant.equipe2;
+
+        equipe.players[index]={...equipe.players[index],[e.target.name]:e.target.value};
+
+
+        participant = team===1 ? {...participant,equipe1:equipe} :{...participant,equipe2:equipe};
         reservationForm = {...reservationForm, participant};
         this.setState({reservationForm: reservationForm});
     }
@@ -615,7 +620,6 @@ class PlanningPage extends React.Component {
         )
             ;
     }
-
 
     //rendering Modal for history
     renderModal() {
