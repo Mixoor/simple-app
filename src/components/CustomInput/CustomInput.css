@@ -2,6 +2,14 @@
 .form-input-inline{
     margin-bottom:28px;
 }
+.form-input-margin{
+    margin-bottom:28px;
+}
+.custom-form-input  .field .input ,
+.custom-form-input .field textarea{
+    width: 100% !important;
+}
+
 .form-input-inline .field {
     display: flex !important;
     flex: 1 ;
@@ -27,7 +35,7 @@
 }
 
 .form-input-inline label{
-    flex:1;
+    /*flex:1;*/
 }
 .input-bg input{
     padding: 0.8em 4px !important;
@@ -64,11 +72,14 @@
     display: flex !important;
 }
 .form-input-inline .field label {
-    font-family: Roboto;
+    font-family: Roboto, serif;
     font-style: normal;
     font-weight: bold;
     font-size: 14px !important;
     line-height: 28px !important;
     letter-spacing: 0.2px;
     color: #9FA2B4 !important;
+}
+.test{
+    background-color: #9f3a38;
 }

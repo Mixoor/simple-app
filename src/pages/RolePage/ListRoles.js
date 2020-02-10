@@ -42,7 +42,7 @@ const friendOptions = [
         value: 'Justen Kitsune',
         image: { avatar: true, src: '/images/avatar/small/justen.jpg' },
     },
-]
+];
 class ListRoles extends React.Component {
   render() {
     return (

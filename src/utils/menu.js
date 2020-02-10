@@ -1,6 +1,7 @@
 export const menu = [
   {
     name: "Accueil",
+    path:"/",
     icon: {
       name: "home",
       color: "black"
@@ -10,6 +11,7 @@ export const menu = [
   },
   {
     name: "Planning",
+    path:"/planning",
     icon: {
       name: "calendar alternate",
       color: "black"
@@ -18,6 +20,7 @@ export const menu = [
   },
   {
     name: "Clients",
+    path:"/clients",
     icon: {
       name: "users",
       color: "black"
@@ -26,6 +29,7 @@ export const menu = [
   },
   {
     name: "Réservations",
+    path:"/reservations",
     icon: {
       name: "history",
       color: "black"
@@ -34,6 +38,7 @@ export const menu = [
   },
   {
     name: "Compétitions",
+    path:"/comp",
     icon: {
       name: "flag checkered",
       color: "black"
@@ -41,15 +46,20 @@ export const menu = [
     sousMenu: [
       {
         name: "sous menu 1",
+        path:"/some",
+
         icon: {
-          name: "",
+          name: "history",
           color: "black"
         }
       },
       {
         name: "sous menu 2",
+        path:"/some2",
+
         icon: {
-          name: "",
+          name: "history",
+
           color: "black"
         }
       }
@@ -57,6 +67,7 @@ export const menu = [
   },
   {
     name: "Ecole de sports",
+    path:"/ecole",
     icon: {
       name: "industry",
       color: "black"
@@ -65,6 +76,7 @@ export const menu = [
   },
   {
     name: "Communications",
+    path:"/communication",
     icon: {
       name: "comments",
       color: "black"
@@ -72,6 +84,7 @@ export const menu = [
     sousMenu: [
       {
         name: "sous menu 1",
+        path:"/sous3",
         icon: {
           name: "",
           color: "black"
@@ -79,6 +92,7 @@ export const menu = [
       },
       {
         name: "sous menu 2",
+        path:"/sssss",
         icon: {
           name: "",
           color: "black"
@@ -88,6 +102,7 @@ export const menu = [
   },
   {
     name: "Caisse",
+    path:"/caisse",
     icon: {
       name: "desktop",
       color: "black"
@@ -96,6 +111,7 @@ export const menu = [
   },
   {
     name: "Videos",
+    path:"/video",
     icon: {
       name: "play",
       color: "black"
@@ -104,6 +120,7 @@ export const menu = [
   },
   {
     name: "Prospection",
+    path:"/pre",
     icon: {
       name: "crosshairs",
       color: "black"
@@ -112,6 +129,7 @@ export const menu = [
   },
   {
     name: "Configuration",
+    path:"/configuration",
     icon: {
       name: "options",
       color: "black"
@@ -122,5 +140,5 @@ export const menu = [
 
 export const user = {
   name: "Chady Mbarki",
-  profile: ""
+  profile: "/profile"
 };

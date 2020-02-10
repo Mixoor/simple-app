@@ -19,7 +19,7 @@ class MainLayout extends React.Component {
     super(props);
      this.container=React.createRef();
       this.state = { width: 250 ,
-        isMobile:window.innerWidth < 810,
+        isMobile:window.innerWidth < 1100,
     };
   }
 
@@ -31,7 +31,7 @@ class MainLayout extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', () => {
             this.setState({
-                isMobile: window.innerWidth < 810
+                isMobile: window.innerWidth < 1100
             });
         }, false);
     }

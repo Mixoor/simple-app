@@ -41,10 +41,10 @@ class ClientsPage extends React.Component{
                         <Input type={"text"}  placeholder={"Nom"} name={"nom"} size='mini' />
                         <Input type={"text"}  placeholder={"Prénom"} name={"prenom"} size='mini' />
                         <Input type={"text"}  placeholder={"Email"} name={"email"} size='mini'  />
-                        <Button className={"btn-round"} secondary>RECHERCHER</Button>
 
                     </div>
 
+                    <Button className={"btn-round"} secondary>RECHERCHER</Button>
 
 
                 </div>

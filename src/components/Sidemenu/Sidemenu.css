@@ -6,15 +6,11 @@
   left: 0;
   background: #ffffff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.170509);
-  /* overflow: visible; Just apply overflow-x */
   padding: 20px;
   padding-top: 22px;
-  /* overflow: -moz-scrollbars-none; */
   -ms-overflow-style: none;
 }
 .overflow-visible {
-  /* overflow-y: visible;
-  overflow-x: visible; Just apply overflow-y */
   -ms-overflow-style: none;
   flex-direction: column;
 }
@@ -40,27 +36,29 @@
   flex-direction: column;
   flex: 1;
 }
-.menu span.item {
-  width: 100%;
+.menu span.item{
+  margin-bottom: 10px;
+}
+.menu span.item a {
+  display:block;
   padding-left: 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   color: #2c2c2c;
-  margin-bottom: 10px;
-  font-family: Montserrat;
+  font-family: Montserrat, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   line-height: 34px;
   cursor: pointer;
 }
-span.item.active i {
+span.item a.active i {
   color: white !important;
 }
-.menu span.item.active,
-.menu span.item.active:hover {
+.menu span.item a.active ,
+.menu span.item a.active  {
   color: white;
   background: linear-gradient(188.54deg, #9e94ff 70.01%, #7e72f2 169.21%);
   box-shadow: -1px 1px 8px rgba(126, 114, 242, 0.578726);
@@ -69,11 +67,10 @@ span.item.active i {
   font-weight: 800;
   font-size: 15px;
   line-height: 34px;
-
   color: #ffffff;
 }
 
-.menu span.item i {
+.menu span.item a i {
   margin-right: 4px;
   margin-left: 8px;
 }
@@ -98,7 +95,8 @@ span.item.active i {
   display: flex;
   flex-direction: column;
   padding-left: 18px;
-  overflow-x: auto;
+
+
 }
 .has-menu {
   display: flex;
@@ -125,7 +123,12 @@ i.last {
 .side-mobile {
   overflow-x: visible !important;
 }
-.side-mobile .menu span.item i {
+.side-mobile .menu .sous-menu span.item a
+{
+  display: flex !important;
+  text-align: left;
+}
+.side-mobile .menu span.item a i {
   font-size: 18px;
 }
 .side-mobile .logo {
@@ -135,12 +138,29 @@ i.last {
   padding: 0;
 }
 
-.side-mobile span.item {
+.side-mobile .menu span.item a i {
+   margin-right: 0;
+   margin-left: 0;
+}
+
+.side-mobile span.item a {
   padding: 8px !important;
   width: 100%;
   text-align: center;
+  border-radius: 0;
+
 }
-.side-mobile span.item:hover {
+
+.side-mobile .menu span.item:hover {
+  background: #ececec;
+  border-radius: 0px;
+}
+.side-mobile span.item a:hover {
+   border-radius: 0!important;
+   /* position: relative; */
+ }
+
+.side-mobile span.item a.active {
   border-radius: 0;
   /* position: relative; */
 }
@@ -149,8 +169,7 @@ i.last {
 }
 .side-mobile {
   align-items: center;
-  padding: 0;
-  padding-top: 18px;
+  padding: 18px 0 0;
 }
 .side-mobile i {
   font-size: 20px;
@@ -169,7 +188,7 @@ i.last {
   z-index: 1000;
   top: 0;
   background-color: white;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.170509);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.170509);
   padding: 0;
 }
 
@@ -181,9 +200,9 @@ i.last {
   display: block;
   position: absolute;
   left: 60px;
-  top: 0px;
+  top: 0;
   background-color: white;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.170509);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.170509);
   padding: 0;
 }
 
@@ -201,3 +220,11 @@ i.last {
     left:100px;
     background-color:red;
 } */
+
+.dark .item a{
+  color:white !important;
+}
+
+.dark .item a:hover{
+  color:#333!important;
+}

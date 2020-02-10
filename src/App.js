@@ -11,8 +11,10 @@ import AddComplex from "@/pages/ComplexPage/AddComplex";
 import ProfilePage from "@/pages/ProfilePage/ProfilePage";
 import ClientsPage from "./pages/ClientsPage/ClientsPage";
 import ReservationsPage from "./pages/ReservationsPage/ReservationsPage";
+import PlanningPage from "./pages/PlanningPage/PlanningPage";
 
 import './App.css';
+import AddClient from "./pages/ClientsPage/AddClient";
 
 function App() {
   return (
@@ -50,6 +52,12 @@ function App() {
             </Route>
             <Route path="/reservations" exact>
                 <ReservationsPage/>
+            </Route>
+            <Route path="/planning" exact>
+                <PlanningPage/>
+            </Route>
+            <Route path="/clients/add" exact>
+                <AddClient/>
             </Route>
             <Route path="*">
                 <Redirect to="/"/>

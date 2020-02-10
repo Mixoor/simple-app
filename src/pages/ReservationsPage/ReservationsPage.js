@@ -55,10 +55,10 @@ class ReservationsPage extends React.Component{
                         </Dropdown>
                         <Input type={"text"}  placeholder={"Client"} name={"client"} size='mini' />
                         <Input type={"date"}  placeholder={"Date"} name={"prenom"} size='mini' />
-                        <Button className={"btn-round"} secondary>RECHERCHER</Button>
 
                     </div>
 
+                    <Button className={"btn-round"} secondary>RECHERCHER</Button>
 
 
                 </div>

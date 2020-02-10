@@ -1,6 +1,5 @@
 import React from "react";
 import {Tab} from "semantic-ui-react";
-import PropTypes from "prop-types";
 import './CustomTab.css';
 /**
  * Create a custom tab
@@ -16,7 +15,7 @@ import './CustomTab.css';
 
 const CustomTab =(props)=>{
     return (
-        <div className='tab-custom'>
+        <div className={'tab-custom ' + props.cssClassName}>
         <Tab menu={{ text: true }} {...props} />
         </div>
 

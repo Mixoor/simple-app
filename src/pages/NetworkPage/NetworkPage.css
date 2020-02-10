@@ -21,8 +21,7 @@
 .div-form{
     display: flex;
     margin: 16px 45px;
-    min-width: 420px;
-    flex: 1 1;
+    min-width:450px;
     flex-direction: column;
     }
 .btn-right{

@@ -21,6 +21,7 @@
 .header-main {
   width: 100%;
   display: flex;
+  margin-top: 56px;
   flex-direction: column;
 }
 
