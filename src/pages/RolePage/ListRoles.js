@@ -60,7 +60,7 @@ class ListRoles extends React.Component {
                   Jamie is a kind girl but sometimes you don't really have
                   enough room to describe everything you'd like
                 </Table.Cell>
-                <Table.Cell className="td-text tools" width={2}>
+                <Table.Cell className="td-text tools" >
                   <Button
                     icon="pencil alternate"
                     className="custom-edit-tab"
@@ -89,7 +89,7 @@ class ListRoles extends React.Component {
                   Jamie is a kind girl but sometimes you don't really have
                   enough room to describe everything you'd like
                 </Table.Cell>
-                <Table.Cell className="td-text tools" width={2}>
+                <Table.Cell className="td-text tools" >
                   {/* <Button icon="search" primary circular /> */}
                   {/* <Button icon="pencil alternate" primary circular />
                   <Button icon="trash" color="red" circular /> */}
@@ -122,7 +122,7 @@ class ListRoles extends React.Component {
                   Jamie is a kind girl but sometimes you don't really have
                   enough room to describe everything you'd like
                 </Table.Cell>
-                <Table.Cell className="td-text tools" width={2}>
+                <Table.Cell className="td-text tools" >
                   {/* <Button icon="search" primary circular /> */}
                   {/* <Button icon="pencil alternate" primary circular />
                   <Button icon="trash" color="red" circular /> */}
@@ -149,7 +149,7 @@ class ListRoles extends React.Component {
                   Jamie is a kind girl but sometimes you don't really have
                   enough room to describe everything you'd like
                 </Table.Cell>
-                <Table.Cell className="td-text tools" width={2}>
+                <Table.Cell className="td-text tools">
                   {/* <Dropdown icon="ellipsis vertical">
                     <Dropdown.Menu>
                       <Dropdown.Item
