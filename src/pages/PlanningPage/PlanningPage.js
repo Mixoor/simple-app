@@ -9,7 +9,6 @@ import {
     Icon,
     Divider,
     Checkbox,
-    Tab,
     Transition,
     Image,
     Modal,
@@ -27,7 +26,6 @@ import ReactTooltip from 'react-tooltip';
 import CustomLoader from "../../components/Loader/Loader";
 import CustomTab from "../../components/CustomTab/CustomTab";
 import CustomInput from "../../components/CustomInput/CustomInput";
-import ReservationTable from "../ProfilePage/ReservationTable";
 import CustomTable from "../../components/CustomTable/CustomTable";
 
 
@@ -190,6 +188,15 @@ let player= {
 };
 
 
+/**
+ *
+ * Planning Page has fullCalendar and four modals
+ * 1- Modal for Reservation History
+ * 2- Modal for Deleted Reservation
+ * 3- Modal for Adding reservation
+ * 4- Modal for editing reservation
+ *
+ * **/
 class PlanningPage extends React.Component {
     constructor(props) {
         super(props);
@@ -233,8 +240,8 @@ class PlanningPage extends React.Component {
                     remise: "",
                     codeRe: "",
                     codeVideo: "",
-                    recurrence: "0",
-                    video: "0",
+                    recurrence: 0,
+                    video:  0,
                     conclusion: "",
                 },
                 participant: {
@@ -268,6 +275,53 @@ class PlanningPage extends React.Component {
         this.onChangeTeam = this.onChangeTeam.bind(this);
         this.addNewPlayer = this.addNewPlayer.bind(this);
 
+    }
+
+
+    resetAddReservationModal(){
+        this.setState({modalAdd:false,selectedIndex: 0,reservationForm:{
+                selectedIndex: -1,
+                information: {
+                    show: false,
+                    search: "",
+                    id: null,
+                    isLoading: false,
+                    firstName: "",
+                    lastName: "",
+                    dateOfBirth: "",
+                    email: "",
+                    mobile: "",
+                    society: "",
+                    info: "",
+                    activity: "",
+                    terrain: "",
+                    competition: "",
+                    duree: "",
+                    date: "",
+                    startHour: "",
+                    endHour: "",
+                    montant: "",
+                    remise: "",
+                    codeRe: "",
+                    codeVideo: "",
+                    recurrence: 0,
+                    video:  0,
+                    conclusion: "",
+                },
+                participant: {
+                    equipe1: {
+                        id: 0,
+                        players: new Array(5).fill(player)
+                    },
+                    equipe2: {
+                        id: 1,
+                        players: new Array(5).fill(player)
+                    }
+
+
+                },
+                history: {}
+            }});
     }
 
     removePlayer(index,team){
@@ -422,6 +476,7 @@ class PlanningPage extends React.Component {
     }
 
     handleReservationChange(e) {
+
         let {reservationForm} = this.state;
         let {information} = this.state.reservationForm;
         information = {...information, [e.target.name]: e.target.value};
@@ -486,16 +541,17 @@ class PlanningPage extends React.Component {
 
                         {this.state.reservationForm.participant.equipe1.players.map((player, i) => {
                             return (
-                                <Grid.Row verticalAlign={"top"}  className={'border-bottom no-padding-right'} >
+                                <Grid.Row verticalAlign={"top"}  key={`equipe-1-row-player-${i}`} className={'border-bottom no-padding-right'} >
                                     <React.Fragment key={`equipe-1-player-${i}`}>
                                         <Grid.Column width={4} className={"no-padding-left "}>
 
-                                                    <label className={"label-modal no-padding"}>Joueur {+(i + 1)}</label>
-                                                    {
-                                                        player.removable &&
-                                                        <Icon color={"red"}  name={"trash"} className={"remove-player"}
-                                                              onClick={() => this.removePlayer(i, 1)}/>
-                                                    }
+                                            {
+                                                player.removable &&
+                                                <Icon color={"red"}  name={"trash"} className={"remove-player"}
+                                                      onClick={() => this.removePlayer(i, 1)}/>
+                                            }
+                                            <label className={"label-modal no-padding"}>Joueur {+(i + 1)}</label>
+
 
                                         </Grid.Column>
                                         <Grid.Column width={12} className={"no-padding-left no-padding-right"}>
@@ -748,9 +804,11 @@ class PlanningPage extends React.Component {
     //render add reservation
     renderReservationModal() {
 
+
+
         return (
             <Modal open={this.state.modalAdd} size={"large"} className={"reservation-modal"}
-                   onClose={() => this.setState({modalAdd: false})}>
+                   onClose={() => this.resetAddReservationModal()}>
                 <Modal.Header className={"centered-title modal-title"}> Réservation
                     du {moment(this.state.info.dateStr).locale("fr", localization).format("LLLL")}</Modal.Header>
                 <Modal.Content image scrolling={false} className={"history-content"}>
@@ -799,7 +857,7 @@ class PlanningPage extends React.Component {
                     </Button>
 
                     <Button className={"btn-enregister"} onClick={() => {
-                        console.log("hi there");
+                        console.log("Enregister button");
                     }} secondary>Enregister</Button>
                 </Modal.Actions>
             </Modal>
@@ -807,7 +865,7 @@ class PlanningPage extends React.Component {
 
     }
 
-
+    // return Historique panel
     renderHistoricalPanel() {
         return (
             <div className={"historique-container"}>
@@ -866,7 +924,11 @@ class PlanningPage extends React.Component {
         );
     }
 
+
+    // return information panel
     renderInformationPanel() {
+        // has the date selected from user
+        let {info} =this.state;
 
 
         return (
@@ -946,7 +1008,7 @@ class PlanningPage extends React.Component {
                                         </Grid>
 
 
-                                        <CustomInput parentClass={"modal-input"}
+                                        <CustomInput
                                                      label={"Né le"}
                                                      onChange={this.handleReservationChange}
                                                      value={this.state.reservationForm.information.dateOfBirth}
@@ -954,7 +1016,6 @@ class PlanningPage extends React.Component {
                                                      type={"date"}/>
 
                                         <CustomInput mode={"inline"}
-                                                     parentClass={"modal-input"}
                                                      label={"Email"}
                                                      value={this.state.reservationForm.information.email}
                                                      type={"email"}
@@ -962,7 +1023,6 @@ class PlanningPage extends React.Component {
                                                      name={"email"}/>
 
                                         <CustomInput mode={"inline"}
-                                                     parentClass={"modal-input"}
                                                      label={"Mobile"}
                                                      value={this.state.reservationForm.information.mobile}
                                                      type={"text"}
@@ -970,14 +1030,12 @@ class PlanningPage extends React.Component {
                                                      name={"mobile"}/>
 
                                         <CustomInput mode={"inline"}
-                                                     parentClass={"modal-input"}
                                                      label={"Societé"}
                                                      value={this.state.reservationForm.information.society}
                                                      type={"text"}
                                                      onChange={this.handleReservationChange}
                                                      name={"society"}/>
                                         <CustomInput mode={"inline"}
-                                                     parentClass={"modal-input"}
                                                      label={"Info"}
                                                      value={this.state.reservationForm.information.info}
                                                      type={"textArea"}
@@ -1046,6 +1104,7 @@ class PlanningPage extends React.Component {
         );
     }
 
+    //render the right side for form reservation modal
     renderRightSide() {
         return (
             <div className={"input-modal"}>
@@ -1058,14 +1117,14 @@ class PlanningPage extends React.Component {
                 {/*                 name={"name"}/>*/}
                 {/*</div>*/}
 
-                <CustomInput parentClass={"modal-input"} label={"Activité"}
+                <CustomInput  label={"Activité"}
                              value={this.state.reservationForm.information.activity}
                              onChange={this.handleReservationChange}
                              options={[]}
                              name={"activity"} type={"dropdown"} selection/>
 
                 <CustomInput mode={"inline"}
-                             parentClass={"modal-input"} label={"Terrain"}
+                              label={"Terrain"}
                              value={this.state.reservationForm.information.terrain}
                              onChange={this.handleReservationChange}
                              type={"dropdown"}
@@ -1074,7 +1133,6 @@ class PlanningPage extends React.Component {
                              name={"terrain"}/>
 
                 <CustomInput mode={"inline"}
-                             parentClass={"modal-input"}
                              label={"Compétation"}
                              type={"dropdown"}
                              selection
@@ -1090,7 +1148,7 @@ class PlanningPage extends React.Component {
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Input
-                            type={"text"}
+                            type={"time"}
                             name={"duree"}
                             onChange={this.handleReservationChange}
                             value={this.state.reservationForm.information.duree}
@@ -1101,7 +1159,7 @@ class PlanningPage extends React.Component {
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Input
-                            type={"text"}
+                            type={"date"}
                             name={"date"}
                             onChange={this.handleReservationChange}
                             value={this.state.reservationForm.information.date}
@@ -1116,10 +1174,10 @@ class PlanningPage extends React.Component {
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Input
-                            type={"text"}
-                            name={"duree"}
+                            type={"time"}
+                            name={"startHour"}
                             onChange={this.handleReservationChange}
-                            value={this.state.reservationForm.information.duree}
+                            value={this.state.reservationForm.information.startHour}
                         />
                     </Grid.Column>
                     <Grid.Column width={2} textAlign={"center"}>
@@ -1127,10 +1185,10 @@ class PlanningPage extends React.Component {
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Input
-                            type={"text"}
-                            name={"date"}
+                            type={"time"}
+                            name={"endHour"}
                             onChange={this.handleReservationChange}
-                            value={this.state.reservationForm.information.date}
+                            value={this.state.reservationForm.information.endHour}
                         />
                     </Grid.Column>
                 </Grid>
@@ -1142,10 +1200,10 @@ class PlanningPage extends React.Component {
                     </Grid.Column>
                     <Grid.Column width={5}>
                         <Input
-                            type={"time"}
-                            name={"duree"}
+                            type={"text"}
+                            name={"montant"}
                             onChange={this.handleReservationChange}
-                            value={this.state.reservationForm.information.duree}
+                            value={this.state.reservationForm.information.montant}
                         />
                     </Grid.Column>
                     <Grid.Column width={2} textAlign={"center"}>
@@ -1154,9 +1212,9 @@ class PlanningPage extends React.Component {
                     <Grid.Column width={5}>
                         <Input
                             type={"text"}
-                            name={"date"}
+                            name={"remise"}
                             onChange={this.handleReservationChange}
-                            value={this.state.reservationForm.information.date}
+                            value={this.state.reservationForm.information.remise}
                         />
                     </Grid.Column>
                 </Grid>
@@ -1170,7 +1228,6 @@ class PlanningPage extends React.Component {
                         <Dropdown
                             placeholder='Réccurence'
                             selection={true}
-                            parentClass={"modal-input"}
                             value={this.state.reservationForm.information.recurrence}
                             onChange={this.handleReservationChange}
                             name={"reccurence"}
@@ -1188,7 +1245,6 @@ class PlanningPage extends React.Component {
                         <Dropdown
                             placeholder='Réccurence'
                             selection={true}
-                            parentClass={"modal-input"}
                             value={this.state.reservationForm.information.video}
                             onChange={this.handleReservationChange}
                             name={"reccurence"}
@@ -1208,11 +1264,11 @@ class PlanningPage extends React.Component {
                     <Grid.Column width={5}>
                         <Input
                             type={"text"}
-                            name={"duree"}
+                            name={"codeVideo"}
                             disabled={true}
                             className={"code"}
                             onChange={this.handleReservationChange}
-                            value={this.state.reservationForm.information.duree}
+                            value={this.state.reservationForm.information.codeVideo}
                         />
                     </Grid.Column>
                     <Grid.Column width={2} textAlign={"center"}>
@@ -1223,139 +1279,12 @@ class PlanningPage extends React.Component {
                             type={"text"}
                             disabled={true}
                             className={"code"}
-                            name={"date"}
+                            name={"codeRe"}
                             onChange={this.handleReservationChange}
-                            value={this.state.reservationForm.information.date}
+                            value={this.state.reservationForm.information.codeRe}
                         />
                     </Grid.Column>
                 </Grid>
-                {/*<CustomInput mode={"inline"}*/}
-                {/*             parentClass={"modal-input"}*/}
-                {/*             label={"Date"}*/}
-                {/*             value={this.state.reservationForm.information.date}*/}
-                {/*             type={"date"}*/}
-                {/*             onChange={this.handleReservationChange}*/}
-                {/*             name={"date"}/>*/}
-
-                {/*<Grid columns={16}>*/}
-
-
-                {/*    <Grid.Column width={8}>*/}
-                {/*        <CustomInput mode={"inline"}*/}
-                {/*                     parentClass={"modal-input"}*/}
-                {/*                     label={"Heure début"}*/}
-                {/*                     value={this.state.reservationForm.information.startHour}*/}
-                {/*                     onChange={this.handleReservationChange}*/}
-                {/*                     name={"startHour"}*/}
-                {/*                     type={"time"}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-
-                {/*    <Grid.Column width={8}>*/}
-                {/*        <CustomInput mode={"inline"}*/}
-                {/*                     parentClass={"modal-input"}*/}
-                {/*                     label={"Heure fin"}*/}
-                {/*                     value={this.state.reservationForm.information.endHour}*/}
-                {/*                     onChange={this.handleReservationChange}*/}
-                {/*                     name={"endHour"}*/}
-                {/*                     type={"time"}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-                {/*</Grid>*/}
-
-
-                {/*<Grid columns={16}>*/}
-                {/*    <Grid.Column width={8}>*/}
-                {/*        <CustomInput mode={"inline"}*/}
-                {/*                     parentClass={"modal-input"}*/}
-                {/*                     label={"Montant"}*/}
-                {/*                     value={this.state.reservationForm.information.montant}*/}
-                {/*                     onChange={this.handleReservationChange}*/}
-                {/*                     name={"montant"}*/}
-                {/*                     type={"number"}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-
-                {/*    <Grid.Column width={8}>*/}
-                {/*        <CustomInput mode={"inline"}*/}
-                {/*                     parentClass={"modal-input"}*/}
-                {/*                     label={"Supp / rem"}*/}
-                {/*                     value={this.state.reservationForm.information.remise}*/}
-                {/*                     onChange={this.handleReservationChange}*/}
-                {/*                     name={"remise"}*/}
-                {/*                     type={"number"}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-                {/*</Grid>*/}
-
-
-                {/*<Grid columns={16}>*/}
-                {/*    <Grid.Column width={8}>*/}
-                {/*        <CustomInput mode={"inline"}*/}
-                {/*                     parentClass={"modal-input"}*/}
-                {/*                     label={"Code Réseaux"}*/}
-                {/*                     value={this.state.reservationForm.information.codeRe}*/}
-                {/*                     onChange={this.handleReservationChange}*/}
-                {/*                     name={"codeRe"}*/}
-                {/*                     type={"text"}*/}
-                {/*        />*/}
-
-                {/*    </Grid.Column>*/}
-                {/*    <Grid.Column width={8}>*/}
-                {/*        <CustomInput mode={"inline"}*/}
-                {/*                     parentClass={"modal-input"}*/}
-                {/*                     label={"Code vidéo"}*/}
-                {/*                     value={this.state.reservationForm.information.codeVideo}*/}
-                {/*                     onChange={this.handleReservationChange}*/}
-                {/*                     name={"codeVideo"}*/}
-                {/*                     type={"text"}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-                {/*</Grid>*/}
-
-
-                {/*/!*<div className={"modal-col selected-modal"}>*!/*/}
-                {/*<Grid columns={"16"} verticalAlign={"middle"} className={"selected-modal"}>*/}
-                {/*    <Grid.Column width={"8"}>*/}
-                {/*        <CustomInput*/}
-                {/*            placeholder='Réccurence'*/}
-                {/*            selection={true}*/}
-                {/*            mode={"inline"}*/}
-                {/*            parentClass={"modal-input"}*/}
-                {/*            label={"Réccur rence"}*/}
-                {/*            value={this.state.reservationForm.information.video}*/}
-                {/*            onChange={this.handleReservationChange}*/}
-                {/*            name={"reccurence"}*/}
-                {/*            type={"dropdown"}*/}
-                {/*            options={[*/}
-                {/*                {key: 0, text: 'Oui', value: 0},*/}
-                {/*                {key: 1, text: 'Non', value: 1},*/}
-                {/*            ]}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-                {/*    <Grid.Column width={"8"}>*/}
-                {/*        <CustomInput*/}
-                {/*            placeholder='Vidéo'*/}
-                {/*            selection={true}*/}
-                {/*            mode={"inline"}*/}
-                {/*            parentClass={"modal-input"}*/}
-                {/*            label={"Vidéo"}*/}
-                {/*            value={this.state.reservationForm.information.video}*/}
-                {/*            onChange={this.handleReservationChange}*/}
-                {/*            name={"video"}*/}
-                {/*            type={"dropdown"}*/}
-                {/*            options={[*/}
-                {/*                {key: 0, text: 'Oui', value: 0},*/}
-                {/*                {key: 1, text: 'Non', value: 1},*/}
-                {/*            ]}*/}
-                {/*        />*/}
-                {/*    </Grid.Column>*/}
-                {/*</Grid>*/}
-                {/*</div>*/}
-
-
-                {/*</Grid>*/}
-
 
             </div>
         );
@@ -1647,6 +1576,8 @@ class PlanningPage extends React.Component {
                                 }}
 
                                 dateClick={(info) => {
+                                    let value  =moment(info.dateStr).format("YYYY-MM-DD");
+                                    this.handleReservationChange({target:{name:"date",value}});
                                     this.setState({info: info, modalAdd: true});
                                 }
                                 }

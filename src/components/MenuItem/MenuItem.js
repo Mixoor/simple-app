@@ -47,7 +47,7 @@ class MenuItem extends React.Component {
               className={spanClass}
 
             >
-                            <NavLink to={item.path} activeClassName={"active"}     onClick={(e) => {
+                            <NavLink to={item.path} activeClassName={"active"} onClick={(e) => {
                               this.toggle(e);
                             }}>
 
